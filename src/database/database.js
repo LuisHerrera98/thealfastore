@@ -1,7 +1,11 @@
 import Sequelize from 'sequelize';
+import dotenv from 'dotenv'
+dotenv.config()
 
-export const sequelize = new Sequelize('induar', 'postgres', 'password', {
-    host: '54.156.167.104',
+const {DB_HOST, DB_NAME, DB_PASSWORD, DB_USER} = process.env
+
+export const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
+    host: DB_HOST,
     dialect: 'postgres',
     logging: false
 });
