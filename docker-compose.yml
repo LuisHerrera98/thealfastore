@@ -4,6 +4,7 @@ services:
   backend_thealfastore:
     container_name: backend_thealfastore
     image: backend
+    restart: always
     build: 
       context: .
     ports:
@@ -21,8 +22,9 @@ services:
   db_thealfastore: 
     container_name: db_thealfastore
     image: postgres
+    restart: always
     ports:
-      - "5432:5432"
+      - "5431:5432"
     environment: 
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=db_thealfastore
